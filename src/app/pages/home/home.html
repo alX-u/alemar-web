@@ -1,0 +1,21 @@
+<div class="flex flex-col items-center justify-center h-screen gap-12 p-6">
+  <div id="header" class="flex flex-col items-center justify-center gap-4">
+    <img class="max-h-[244px]" src="aleinnovat_bg.png" alt="aleinnovat_bg" />
+    <h1 class="text-4xl font-bold text-gray-900">Visualización de Dashboard</h1>
+    <h2 class="text-xl font-normal text-gray-600">
+      Acceso seguro a tu tablero de PowerBI
+    </h2>
+  </div>
+  @if (!(isAuthenticated() | async)) {
+  <button
+    class="text-white border-none btn bg-aleinnovat-green"
+    (click)="login()"
+  >
+    Iniciar sesión
+  </button>
+  } @else {
+  <button class="text-white border-none btn btn-error" (click)="logout()">
+    Cerrar sesión
+  </button>
+  }
+</div>

@@ -1,0 +1,20 @@
+<div id="page-content" class="flex flex-col min-h-screen p-6">
+  <div id="navbar" class="flex justify-end p-4">
+    <button class="text-white border-none btn btn-error" (click)="logout()">
+      Cerrar sesión
+    </button>
+  </div>
+  <div
+    id="dashboard-container"
+    class="flex items-center justify-center flex-1 h-0"
+  >
+    <iframe
+      title="Alemar"
+      width="1024"
+      height="612"
+      src="https://app.powerbi.com/view?r=eyJrIjoiNGQyYTdiNDItOTlmOS00ZGI0LWFmOWUtZjA1OGJmZmNhM2UwIiwidCI6ImY0MDc2ZjQxLWE2M2MtNGVmMy04ZWFmLTc1ZTE2N2FlNzY4NCIsImMiOjR9"
+      frameborder="0"
+      allowfullscreen="true"
+    ></iframe>
+  </div>
+</div>
