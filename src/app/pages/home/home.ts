@@ -10,25 +10,26 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrl: './home.css',
 })
 export class Home {
-  //*Dependency injection
   _authService = inject(AuthService);
   _router = inject(Router);
 
-  //*Signals
   isAuthenticated = signal(this._authService.isAuthenticated$);
 
   constructor() {
-    this.isAuthenticated().subscribe((isAuth) => {
-      if (isAuth) {
+    this._authService.user$.subscribe((user) => {
+      if (user?.email === 'tesorerialemar@gmail.com') {
         this._router.navigate(['/dashboard']);
+      } else if (user) {
+        this._authService.logout({
+          logoutParams: { returnTo: window.location.origin },
+        });
+        alert('Solo el usuario autorizado puede acceder al dashboard.');
       }
     });
   }
 
   login() {
-    this._authService.loginWithRedirect({
-      appState: { target: '/dashboard' },
-    });
+    this._authService.loginWithRedirect();
   }
 
   logout() {

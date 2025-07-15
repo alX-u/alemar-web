@@ -6,16 +6,11 @@
       Acceso seguro a tu tablero de PowerBI
     </h2>
   </div>
-  @if (!(isAuthenticated() | async)) {
+
   <button
     class="text-white border-none btn bg-aleinnovat-green"
     (click)="login()"
   >
     Iniciar sesión
   </button>
-  } @else {
-  <button class="text-white border-none btn btn-error" (click)="logout()">
-    Cerrar sesión
-  </button>
-  }
 </div>
